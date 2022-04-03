@@ -4,3 +4,83 @@ function getAverage(marks){
     let results = marks.reduce((a,b)=> a+b,0)/marks.length
     return Math.floor(results)
   }
+
+  //Reverse Sequence
+
+  const reverseSeq = n => {
+    let arr = []
+    for(let i= 1; i <= n; i++){
+      arr.unshift(i)
+    }
+      return arr
+    
+  };
+
+  //Jenny's Secret Message
+
+  function greet(name){
+    if(name === "Johnny"){
+      return "Hello, my love!";
+    }
+    return "Hello, " + name + "!";
+  }
+
+  //Calculate avg of array
+
+  function find_average(array) {
+    if(array.length === 0){
+      return 0}
+   return array.reduce((sum,c) =>sum + c, 0 )/array.length
+       
+  }
+
+  //Reverse Words
+
+  function reverseWords(str){
+    return str.split(' ').reverse().join(' ')
+  }
+
+  //Count of postives, Sum of negatives
+
+  function countPositivesSumNegatives(input) {
+    let arr = []
+   if(input === null || input.length === 0){
+         return []
+   }
+     let newArr = input.filter(item => item > 0).length
+     let newArrr = input.filter(item => item < 0).reduce((sum,c)=> sum + c,0)
+      arr.push(newArr,newArrr)
+     return arr
+    
+ }
+
+ //Beginner series #2 clock
+
+ function past(h, m, s){
+    let sum = h*3600000 + m*60000 + s*1000 
+       return sum
+     
+   }
+
+   //Invert values
+
+   function invert(array) {
+    return array.map(item => item*-1)
+ }
+
+ //Needle in Haystack
+
+ function findNeedle(haystack) {
+    let results = haystack.indexOf('needle')
+    return ( `found the needle at position ${results}`)
+  }
+
+  //Convert number to reversed array of digits
+
+  function digitize(n) {
+    let results = n + ''
+    results = results.split('').reverse().map( item => Number(item))
+    return results
+    
+  }
+  
