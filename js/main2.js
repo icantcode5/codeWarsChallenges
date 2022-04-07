@@ -120,5 +120,16 @@ String.prototype.toJadenCase = function () {
     return this.split(' ').map(element => element[0].toUpperCase() + element.substring(1)).join(' ') 
   };
 
+  //Given a DNA strain, pair the complements of each Character
 
+function DNAStrand(dna){
+    let code = {
+      'A': 'T',
+      'T': 'A',
+      'C': 'G',
+      'G': 'C'
+}
+    return dna.split('').map(function(i) { return code[i] }).join('')
+}
+ 
   
