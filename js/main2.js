@@ -108,5 +108,17 @@ function XO(str) {
     return str.toLowerCase().split('x').length === str.toLowerCase().split('o').length;
 }
 
-//
+//Given a string, return the length of the smallest string
+
+function findShort(s){
+  return Math.min(...s.split(' ').map(element => element.length))  
+}
+
+//Given a long string, return the first letter of each word capitalized
+
+String.prototype.toJadenCase = function () {
+    return this.split(' ').map(element => element[0].toUpperCase() + element.substring(1)).join(' ') 
+  };
+
+
   
