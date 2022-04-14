@@ -120,5 +120,35 @@ String.prototype.toJadenCase = function () {
     return this.split(' ').map(element => element[0].toUpperCase() + element.substring(1)).join(' ') 
   };
 
+  //Given a DNA strain, pair the complements of each Character
 
-  
+function DNAStrand(dna){
+    let code = {
+      'A': 'T',
+      'T': 'A',
+      'C': 'G',
+      'G': 'C'
+}
+    return dna.split('').map(function(i) { return code[i] }).join('')
+}
+ 
+//Return the last 4 numbers of a credit card while all other numbers are masked by '#'s
+
+function maskify(cc) {
+    return cc.slice(-4).padStart(cc.length,'#')
+}
+
+//return the sum of the two smallest integers of the given array
+function sumTwoSmallestNumbers(numbers) {  
+    numbers.sort( (a, b) => a-b)
+    return numbers[0] + numbers[1]
+}
+
+//Find the sum of the range of numbers while only being given the low and high
+
+const GetSum = (a, b) => {
+    let min = Math.min(a, b),
+        max = Math.max(a, b);
+    return (max - min + 1) * (min + max) / 2;
+}
+
