@@ -152,3 +152,63 @@ const GetSum = (a, b) => {
     return (max - min + 1) * (min + max) / 2;
 }
 
+//Return the amount of times needed for population growth to pass population given
+
+function nbYear(p0, percent, aug, p) {
+  let i = 0
+  while(p0 < p){
+    p0 = Math.floor(p0 + p0 *(percent/100) + aug)
+    i++
+  }
+return i
+  
+}
+
+//Given a perfect square integer, find the next one
+
+function findNextSquare(sq) {
+  let square;
+  if(Math.sqrt(sq) % 1 !== 0){
+    return -1
+  }else{
+    square = Math.sqrt(sq) + 1
+  }
+  return square * square
+}
+
+//Return the given array with only the words that contain 4 letters in them
+
+function friend(friends){
+  return friends.filter(element => element.length=== 4)
+}
+
+//Return 'Senior' if over 55 and 7, otherwise return 'Open' (pairs in an array)
+
+function openOrSenior(data){
+  return data.map(element => {
+    if(element[0] >= 55 && element[1] > 7){
+      return 'Senior'
+    }else{
+      return 'Open'
+    }
+
+  })
+} //input =  [[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]
+  // output = ["Open", "Open", "Senior", "Open", "Open", "Senior"]
+
+  //Return the number of characters greater than 'm' in a fraction out of the total number of characters in the given string
+
+function printerError(s) {
+    let count = 0
+      let arr = 'abcdefghijklm'
+      for(let char1 of arr){
+      for(let char of s){
+        if(char === char1 ){
+          count--
+        }
+      }
+    }
+     return (count + s.length) +'/' + s.length
+     
+}
+
