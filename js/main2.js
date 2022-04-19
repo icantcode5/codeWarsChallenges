@@ -212,3 +212,24 @@ function printerError(s) {
      
 }
 
+//Return the sum of two numbers in their binary form
+
+function addBinary(a,b) {
+  let num = a+b
+  return num.toString(2)
+}
+
+//if the given 3 side lengths can be used to create a triangle, return true
+
+function isTriangle(a,b,c){
+  return a+b> c && a+c >b && c+b > a ? true : false
+}
+
+//Return the sum of the numbers in the nth row of an odd consecutive triangle
+
+function rowSumOddNumbers(n) {
+  return Math.pow(n, 3); // n*n*n returns specific odd row triangle sum
+}
+
+//
+
