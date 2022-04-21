@@ -231,5 +231,76 @@ function rowSumOddNumbers(n) {
   return Math.pow(n, 3); // n*n*n returns specific odd row triangle sum
 }
 
-//
+//Convert the given array of a binary number to decimal
 
+const binaryArrayToNumber = arr => {
+  return parseInt(arr.join(''),2) // first parameter turns string into a number and second parameter decides the base
+};
+
+//Given an array with pairs where the first number is the amount of people that get onto the bus and the second number is the amount of people that get off the bus, find how many people are left in the bus after the last stop
+
+var number = function(busStops){
+  let num =  busStops.map( el => el[0]).reduce((sum,c)=> sum+c,0) 
+  let num2 = busStops.map(ele => ele[1]).reduce((sum,c)=> sum+c,0)
+  return num - num2
+ }
+ number([[10,0],[3,5],[5,8]]),5)
+
+ //Check to see the given integers divisors and if the intger is prime, return that the integer is prime
+
+ function divisors(integer) {
+  let arr = []
+  for(let i = 2; i < integer;i++){
+    if(integer % i === 0){
+      arr.push(i)
+    }
+  }
+   return arr.length >= 2 ? arr : `${integer} is prime`
+}
+
+//If the sum of the given array's integers are even or odd, return 'even' or 'odd'
+
+function divisors(integer) {
+  let arr = []
+  for(let i = 2; i < integer;i++){
+    if(integer % i === 0){
+      arr.push(i)
+  }
+
+}
+   return arr.length >= 2 ? arr : `${integer} is prime`
+}
+
+//Given a string of words, return the string with each word reversed
+
+function reverseWords(str) {
+  return str.split(' ').map( el => el.split('').reverse().join('')).join(' ')
+}
+
+//Return true if the number given,its digits when raised to the power of the number's length and summed equal the original number
+
+function isNarcissistic(n){
+  let N = n.toString().length
+  let num = n.toString().split('').map(element => Math.pow(element,N)).reduce((cur,sum)=> cur + sum,0)
+  return num === n ? true : false
+  }
+
+  //Given a string, return the count of all the capital letters, lowercase letters, numbers and symbols in that order in an array
+
+  const solve = (s) => {
+    let result = [0, 0, 0, 0];
+    for (let i = 0; i < s.length; i += 1) {
+      if (s[i].toLowerCase() > s[i]) {
+        result[0] += 1;
+      } else if (s[i].toUpperCase() < s[i]) {
+        result[1] += 1;
+      } else if (s[i] >= 0 && s[i] <= 9) {
+        result[2] += 1;
+      } else {
+        result[3] += 1;
+      }
+    }
+    return result;
+  };
+
+  //
