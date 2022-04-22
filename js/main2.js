@@ -303,4 +303,62 @@ function isNarcissistic(n){
     return result;
   };
 
-  //
+  //Given a string of binary numbers, if any of the chosen adjacent numbers are '0' and '1' remove them and return the amount of elements left in the string
+
+function zeroAndOne(s) {
+    let arr = Array.from(s)
+    arr.forEach((element,i)=> {
+      if((arr[i]==='0' && arr[i+1]==='1')||arr[i]==='1' && arr[i+1]==='0' ){
+         arr[i] ='', arr[i+1]=''
+    }
+  })
+    return arr.join('').length
+}
+
+//If the given number has multiples of 3 and 5, add those numbers up an return their sum
+
+function solution(number){
+  let arr = []
+ for(let i = 1; i < number; i++){
+   if(i % 3 === 0){
+     arr.push(i)
+   }else if(i % 5 === 0){
+     arr.push(i)
+   }
+ }
+ return arr.reduce((sum,cur)=> sum+cur,0)
+}
+
+//Find the minimum number in an array and return the array without it. If there are repeating min numbers, get rid of the first instance of it only. Do not mutate the original array!
+
+function removeSmallest(numbers) {
+  let min = Math.min(...numbers)
+  return numbers.filter((element, i ) => i !== numbers.indexOf(min))
+}
+
+//Return the minimum and maximum of an array in an array format
+
+function minMax(arr){
+  return [Math.min(...arr), Math.max(...arr)];
+}
+
+//Write a function which takes a list of strings and returns each line prepended by the correct number.
+
+//EX: number([]) // => []
+//number(["a", "b", "c"]) // => ["1: a", "2: b", "3: c"]
+
+var number=function(array){
+  return array.map((element, i) => `${i+1}: ${element}`)
+}
+
+//Given a low and high number, return only the numbers that don't contan a '5' in them in an array
+
+function dontGiveMeFive(start, end){
+  let arr = []
+  for(let i = start; i <= end; i++){
+    arr.push(i.toString())
+  } 
+  let newArr = arr.map(element => element.includes('5')).filter(element => element !== true)
+  return newArr.length
+}
+  
