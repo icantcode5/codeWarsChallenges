@@ -361,4 +361,39 @@ function dontGiveMeFive(start, end){
   let newArr = arr.map(element => element.includes('5')).filter(element => element !== true)
   return newArr.length
 }
+
+//Given an array of numbers, if a number has a perfect square root, return the sqrt otherwise square the number
+
+function squareOrSquareRoot(array) {
+  return array.map((element) => {
+    if(Math.sqrt(element) % 1 === 0){
+      return Math.sqrt(element)
+      }else{
+        return Math.pow(element,2)
+      }
+  })
+}
+
+//Return 1 for both lower case strings, -1 for lowercase and uppercase or vice versa strings and 0 for anything else
+
+function sameCase(a, b){
+  if(a.toUpperCase() === a.toLowerCase() || b.toLowerCase() === b.toUpperCase()){
+     return -1
+   }else if(a === a.toLowerCase() && b === b.toLowerCase() || a === a.toUpperCase() && b === b.toUpperCase()){
+       return 1
+   }else{
+     return 0
+   }
+ }
+
+ //Given an array of numbers, return the only non repeating number
+
+ function stray(numbers) {
+  for(let i = 0; i < numbers.length; i++){
+    if(numbers.indexOf(numbers[i]) === numbers.lastIndexOf(numbers[i])){
+       return numbers[i]
+       }
+  }
+   
+}
   
