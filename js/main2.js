@@ -396,4 +396,57 @@ function sameCase(a, b){
   }
    
 }
+
+//Given the inital principle of money, how many years will it take to reach the desired amount after being left in the bank? 
+
+function calculateYears(principal, interest, tax, desired) {
+  let i = 0
+  while (principal < desired){
+    principal = principal + (principal*interest) - (principal*interest) * tax
+    i++
+  }
+  return i
+}
+
+//Square every number from 0 to the given integer n and find how many instances of the integer d appear in each squared number
+
+function nbDig(n, d) {
+  let arr = []
+    for(let i = 0; i <= n; i++){
+     arr.push(Math.pow(i,2))
+  }
+  return arr.join('').split(d).length-1
+}
+
+//Find how many divisors there are in the given parameter of n
+
+function getDivisorsCnt(n){
+  let count = 0
+    for(let i = 1; i <= n; i++){
+      if(n % i === 0){
+        count++
+      }
+    }
+  return count
+}
+
+//given an integer, return the value of nearest multiple of 5
+
+function roundToNext5(n){
+  return Math.ceil(n/5)*5;
+}
+
+//Given an array of 3 elements containing only integers, return the integer whose value is the middle of the other two, but don't mutate the original array
+
+function gimme (triplet) {
+  let arr = triplet.slice().sort((a,b)=> a-b)
+  return triplet.indexOf(arr[1])
+}
+
+//Given an array of different string lengths, sort the array by string length from lowest to greatest
+
+function gimme (triplet) {
+  let arr = triplet.slice().sort((a,b)=> a-b)
+  return triplet.indexOf(arr[1])
+}
   
