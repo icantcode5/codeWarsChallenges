@@ -449,4 +449,59 @@ function gimme (triplet) {
   let arr = triplet.slice().sort((a,b)=> a-b)
   return triplet.indexOf(arr[1])
 }
+
+//given 3 integers, begin, end, step; return all the integers between begin and end stepping up by the step integer
+
+const sequenceSum = (begin, end, step) => {
+  let sum = 0
+  for(let i = begin; i <= end ; i += step){
+    sum += i
+  }
+  return sum
+};
+
+//Given an array of numbers, return the two greates values in an array format
+
+function twoOldestAges(ages){
+  let arr = ages.sort((a,b) => a - b)
+  return [arr[arr.length-2], arr[arr.length-1]]
+}
+
+//Given an object of a fighter, create a function that declares a winner based on turn fighting where the fighter is dead if their health reaches 0 or less
+
+function Fighter(name, health, damagePerAttack) {
+  this.name = name;
+  this.health = health;
+  this.damagePerAttack = damagePerAttack;
+  this.toString = function() { return this.name; }
+}
+
+function declareWinner(fighter1, fighter2, firstAttacker) { //SOLUTION FUNCTION
+  while (fighter1.health > 0 && fighter2.health > 0) {
+    fighter2.health -= fighter1.damagePerAttack;
+    fighter1.health -= fighter2.damagePerAttack;
+  }
+  
+  if (fighter1.health <= 0 && fighter2.health <= 0)
+    return firstAttacker;
+  else if (fighter1.health <= 0)
+    return fighter2.name;
+  else
+    return fighter1.name;
+}
+
+//Given a number, write a function that adds all the numbers that 3 and 5 evenly divide into said passed through number
+
+function findSum(n) {
+  let sum = 0
+  for(let i = 1; i <= n; i++){
+    if((i % 3 === 0) || (i % 5 === 0)){
+      sum += i
+    }
+  }
+  return sum
+}
+
+
+
   
