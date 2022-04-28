@@ -502,6 +502,30 @@ function findSum(n) {
   return sum
 }
 
+//Given a divisor value and the end point value, return the biggest value that the divisor goes into evenly that is less than or equal to the end point
+
+function maxMultiple(divisor, bound){
+  let arr = []
+  for(let i = 1; i <= bound; i++){
+    if(i % divisor === 0){
+      arr.push(i)
+    }
+  }
+  return arr[arr.length-1]
+}
+
+//Given a sequence of numbers in a string, return the greatest sequence of 5 consecutive numbers
+
+function solution(digits){
+  let arr = []
+  for(let i = 0; i <= digits.length;i++){
+    arr.push(digits.slice(i,i+5))
+  }
+  return Number(arr.sort((a,b)=> a - b )[arr.length-1])
+}
+
+//
+
 
 
   
