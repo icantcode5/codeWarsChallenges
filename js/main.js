@@ -83,4 +83,16 @@ function getAverage(marks){
     return results
     
   }
+
+  //Given a starting number and end number, return the multiples of the starting number up to and including the end number
+
+  function findMultiples(integer, limit) {
+    let arr = [];
+    for (let i = integer; i <= limit; i++) {
+        if (i % integer === 0) {
+            arr.push(i);
+        }
+    } 
+    return arr;
+}
   
