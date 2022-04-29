@@ -524,7 +524,30 @@ function solution(digits){
   return Number(arr.sort((a,b)=> a - b )[arr.length-1])
 }
 
-//
+//Given two different strings, check if they anagrams, meaning, contain the same letters and same length of string, just in a different order
+
+var isAnagram = function(test, original) {
+  let str1 = test.toUpperCase().split('').sort().join('')
+  let str2 = original.toUpperCase().split('').sort().join('')
+  
+  return str1 === str2
+};
+
+//Given two arrays, if the second arrays element matche the firt one, add 4 to the score, if the elements don't match, subtract 1, and if the element in the second array is blank, add 0 points to the score
+
+function checkExam(array1, array2) {
+  let score = 0
+  for(let i = 0; i < array1.length;i++){
+    if(array2[i] === ""){
+      score += 0
+    }else if(array1[i] === array2[i]){
+      score += 4
+    }else{
+      score -= 1
+    }  
+  }
+  return score < 0 ? 0 : score
+}
 
 
 
