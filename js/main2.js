@@ -549,6 +549,12 @@ function checkExam(array1, array2) {
   return score < 0 ? 0 : score
 }
 
+//Given a number as a parameter, return the absolute value of the sum of its digits 
+
+function sumDigits(number) {
+  return (Math.abs(number) + '').split('').reduce((acc,curr)=> acc + +curr,0)
+}
+
 
 
   

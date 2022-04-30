@@ -95,4 +95,18 @@ function getAverage(marks){
     } 
     return arr;
 }
+
+//Given a string of numbers, if the number is greater than or equal to five, replace the number with 1 and if the number is less than 5, replace the number with 0
+
+function fakeBin(x){
+  let str = ''
+  for(let i = 0; i < x.length;i++){
+    if(x[i] >= '5'){
+      return str += 1
+    }else{
+      return str += 0
+    }
+  }
+  return str
+}
   
