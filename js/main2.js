@@ -555,6 +555,24 @@ function sumDigits(number) {
   return (Math.abs(number) + '').split('').reduce((acc,curr)=> acc + +curr,0)
 }
 
+//Given a single string as the argument, return in an array, the indices of where each character is capitalized at
+
+var capitals = function (word) {
+  let arrr =[]
+	Array.from(word, element => {
+    if(element === element.toUpperCase()){
+     arrr.push(word.indexOf(element))
+    }
+  })
+  return arrr
+};
+
+//Given an array of numbers as the argument, and a limit value, check if the limit value is greater than or equal to all the values in the array and return true if true, else return false
+
+function smallEnough(a, limit){
+  return Math.max(...a) > limit ? false : true
+ }
+
 
 
   

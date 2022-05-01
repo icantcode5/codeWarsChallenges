@@ -109,4 +109,10 @@ function fakeBin(x){
   }
   return str
 }
+
+//If the given integer requires you to plural any word that comes after it (for example : 5 minutes) return true, otherwise return false
+
+function plural(n) {
+  return ( n > 1 || n < 1) ? true : false
+}
   
