@@ -1,3 +1,5 @@
+// 8 KYU
+
 //Get the mean of an array
 
 function getAverage(marks){
