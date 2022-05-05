@@ -573,6 +573,22 @@ function smallEnough(a, limit){
   return Math.max(...a) > limit ? false : true
  }
 
+ //Given a list of digits, return the smallest number that could be formed from these digits, using the digits only once (ignore duplicates).
+
+ function minValue(values){
+  return Number(values.filter((element, i)=> i === values.indexOf(element)).sort((a,b)=> a-b).join(''))
+}
+
+//Complete the function/method so that it returns the url with anything after the anchor (#) removed.
+
+function removeUrlAnchor(url){
+  if(url.includes('#')){
+  return url.slice(url, url.indexOf('#'))
+  }else{
+    return url
+  }
+}
+
 
 
   
