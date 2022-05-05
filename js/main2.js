@@ -589,6 +589,110 @@ function removeUrlAnchor(url){
   }
 }
 
+//Given a string with uppercase and lowercase letters, return the string in all lowercase letters if the string has more lowercase than uppercase letters and vice versa. If the uppercase letters = the amount of lowecase letters, return the string in all lowercase letters
+
+function solve(s){
+  let count = 0
+  let count2 = 0
+  Array.from(s).map(element => {
+    if(element === element.toLowerCase()){
+      count++
+    }else if(element === element.toUpperCase()){
+      count2++
+    }
+  })
+  if(count > count2 || count === count2){
+    return s.toLowerCase()
+}else if(count < count2){
+  return s.toUpperCase()
+  }
+}
+
+//Given an array of numbers, check if the numbers are in ascending order. If they are, return true else return false
+
+function inAscOrder(arr) {
+  for(let i = 0 ; i < arr.length; i++){
+     if(arr[i] > arr[i+1]){
+       return false
+    }
+  }
+  return true
+}
+
+// //You are given two arrays a1 and a2 of strings. Each string is composed with letters from a to z. Let x be any string in the first array and y be any string in the second array.
+
+// Find max(abs(length(x) − length(y)))
+
+// If a1 and/or a2 are empty return -1 in each language except in Haskell (F#) where you will return Nothing (None).
+
+function mxdiflg(a1, a2) {
+  if(a1.length === 0  || a2.length === 0){
+    return -1
+    }else{
+    a1.sort((a,b)=> a.length - b.length)
+    a2.sort((a,b) => a.length - b.length)
+    let max1 =  Math.abs(a1[0].length - a2[a2.length-1].length)
+    let max2 = Math.abs(a2[0].length - a1[a1.length-1].length)
+    return max1 > max2 ? max1 : max2
+  }
+}
+
+//Given a string, capitalize the letters that occupy even indexes and odd indexes separately, and return as shown below. Index 0 will be considered even.
+
+//For example, capitalize("abcdef") = ['AbCdEf', 'aBcDeF']. See test cases for more examples.
+
+function capitalize(s){
+  let arr =  s.split('').map((element,i) => {
+    if(i % 2 === 0){
+      return element = element.toUpperCase()
+    }else{
+      return element
+    }
+  })
+  let arr3 =  s.split('').map((element,i) => {
+    if(i % 2 !== 0){
+      return element = element.toUpperCase()
+    }else{
+      return element
+    }
+  })
+  return [arr.join(''),arr3.join('')]
+}
+
+// //Your task is to remove all duplicate words from a string, leaving only single (first) words entries.
+
+// Example: 'alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'
+
+// Output:'alpha beta gamma delta'
+
+function removeDuplicateWords (s) {
+  return s.split(' ').filter((element,i,arr) => i === arr.indexOf(element)).join(' ')
+}
+
+// ALSO ANOTHER SOLUTION
+
+function removeDuplicateWords (s) {
+  let set = new Set(s.split(' ')) //creates an object of only unique elements
+  return Array.from(set).join(' ') //returns an array of those unique elements then we convert it back to a string
+}
+
+// Your mission: Write a function called checkCoupon which verifies that a coupon code is valid and not expired.
+
+// A coupon is no more valid on the day AFTER the expiration date. All dates will be passed as strings in this format: "MONTH DATE, YEAR".
+
+function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
+  if(enteredCode === correctCode && new Date(expirationDate) >= new Date(currentDate) ){
+    return true
+  }else{
+    return false
+  }
+} // new Date(date) returns a formatted integer value of the paramater passed through it
+
+//
+
+  
+ 
+
 
 
   
