@@ -688,9 +688,92 @@ function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
   }
 } // new Date(date) returns a formatted integer value of the paramater passed through it
 
-//
 
-  
+//Given a 2D ( nested ) list ( array, vector, .. ) of size m * n, your task is to find the SUM of the minimum values in each row.
+
+// For Example:
+
+// [ [ 1, 2, 3, 4, 5 ]        #  minimum value of row is 1
+// , [ 5, 6, 7, 8, 9 ]        #  minimum value of row is 5
+// , [ 20, 21, 34, 56, 100 ]  #  minimum value of row is 20
+// ]
+
+function sumOfMinimums(arr) {
+  let myarr = []
+     for(let i = 0; i < arr.length; i++){ //loop through the array and grab each element(array)
+       myarr.push(Math.min(...arr[i])) //calculate the minimum value of each array and push it into an array
+     }
+    return myarr.reduce((acc,sum) => acc + sum,0) //sum the array of only minimum numbers of the past arrays
+  }
+  //ALSO ANOTHER SOLUTION
+
+  function sumOfMinimums(arr) {
+    return arr.reduce((acc, cur) => acc + Math.min(...cur),0)
+}
+
+//Given an array, all even indexed numbers are to be summed and all odd indexed numbers are to be summed and return these values in an array
+
+function rowWeights(array){
+    let weight1 = 0
+    let weight2 = 0
+    array.map((element,i) => {
+      if(i % 2 === 0){
+       weight1 += element
+      }else{
+        weight2 += element
+      }
+    })
+    return [weight1,weight2]
+}
+
+//Given a 2 dimensional array, flatten in by returning 1 array containing the all the other array's elements sorted from least to greatest
+
+function flattenAndSort(array) {
+    return array.reduce((acc,cur) => acc.concat(cur),[]).sort((a,b) => a-b)
+}
+
+//ALSO ANOTHER SOLUTION
+
+function flattenAndSort(array) {
+    return [].concat(...array).sort((a,b)=> a-b)
+}
+
+//Write a factorial function
+
+function factorial(n){
+    let factor = 1
+    for(let i = n; 0 < i; i--){
+    factor = factor * i
+    }
+    return factor
+}
+
+//write the equation for finding the sum of the inner angles of an n sided polygon
+
+function angle(n) {
+    return (n-2) * 180
+}
+
+//Complete the method which accepts an array of integers, and returns one of the following:
+
+// "yes, ascending" - if the numbers in the array are sorted in an ascending order
+// "yes, descending" - if the numbers in the array are sorted in a descending order
+// "no" - otherwise
+// You can assume the array will always be valid, and there will always be one correct answer.
+
+function isSortedAndHow(array) {
+  let ascend = array.slice().sort((a,b)=> a-b).join('')
+  let descend = array.slice().sort((a,b)=> b-a).join('')
+  if(array.join('')=== ascend){
+    return 'yes, ascending'
+  }else if(array.join('')===descend){
+    return 'yes, descending'
+  }else{
+    return 'no'
+  }
+}  
+
+//
  
 
 
