@@ -773,6 +773,69 @@ function isSortedAndHow(array) {
   }
 }  
 
+//Given a string and the number of times to repeat it, return the string repeated x times
+
+function repeater(string, n){
+  let repeat = ''
+  for(let i = 0; i < n;i++){
+    repeat += string
+  }
+  return repeat
+}
+
+//ALSO ANOTHER SOLUTION 
+
+function repeater(string, n){
+  return string.repeat(n)
+}
+
+//If　a = 1, b = 2, c = 3 ... z = 26
+
+// Then l + o + v + e = 54
+
+// and f + r + i + e + n + d + s + h + i + p = 108
+
+// So friendship is twice stronger than love :-)
+
+// The input will always be in lowercase and never be empty.
+
+function wordsToMarks(string){
+  let s = 0
+  for(let i =0 ; i < string.length;i++){
+    s += string.charCodeAt(i) -96
+  }
+ return s
+}
+
+//ALSO ANOTHER SOLUTION
+
+function wordsToMarks(string){
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  let marks = 0;
+  string.split('').forEach((char) => {
+    marks += alphabet.indexOf(char) + 1;
+  });
+  return marks;
+}
+
+//Given a number, write a function to output its reverse digits. (e.g. given 123 the answer is 321)
+
+// Numbers should preserve their sign; i.e. a negative number should still be negative when reversed.
+
+// Examples
+//  123 ->  321
+// -456 -> -654
+// 1000 ->    1
+
+function reverseNumber(n) {
+  let arr = String(n).split('').reverse()
+  if(arr.includes('-')){
+    arr.pop()
+    arr.unshift('-')
+  }
+   return +arr.join('')                   
+}
+
 //
  
 
