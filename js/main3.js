@@ -74,7 +74,19 @@ function likes(names) {
 
 var countBits = function(n) {
     return n.toString(2).split('').reduce((acc,cur)=>acc + +cur,0)
-  };
+};
+
+//Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in the form of a phone number.
+
+function createPhoneNumber(numbers){
+    return `(${numbers[0]}${numbers[1]}${numbers[2]}) ${numbers[3]}${numbers[4]}${numbers[5]}-${numbers[6]}${numbers[7]}${numbers[8]}${numbers[9]}` //template literal works here beacuase format never changes and array length stays the same too
+  }
+
+//ALSO ANOTHER SOLUTION
+
+function createPhoneNumber(numbers){
+    return numbers.reduce((p,c) => p.replace('x',c), "(xxx) xxx-xxxx");
+}
 
 
 
