@@ -88,6 +88,102 @@ function createPhoneNumber(numbers){
     return numbers.reduce((p,c) => p.replace('x',c), "(xxx) xxx-xxxx");
 }
 
+//Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+
+function duplicateCount(text){
+    return text.toLowerCase().split('').filter((element,i,arr) => i !== arr.indexOf(element)).filter((element,i,arr) => i === arr.indexOf(element)).length //filter and find the repeated elements and then filter out to keep only one unique repeated element. !!!Only problem is this solution is slow compared to other ones
+}
+
+//ALSO ANOTHER SLIGHTLY FASTER SOLUTION
+
+function duplicateCount(text){
+    return text.toLowerCase().split('').filter(function(val, i, arr){
+      return arr.indexOf(val) !== i && arr.lastIndexOf(val) === i;
+    }).length;
+}
+
+//The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+
+function duplicateEncode(word){
+    let words = ''
+    word.toLowerCase().split('').map((element,i,arr) => {
+      if(arr.indexOf(element) === arr.lastIndexOf(element)){ //if both the same indeces are returned from checking the array from the right and left side, then the element is unique and doesn't appear twice.
+        words += '('
+      }else{
+      words += ')'
+    }
+    })
+    return words
+}
+
+//You live in the city of Cartesia where all roads are laid out in a perfect grid. You arrived ten minutes too early to an appointment, so you decided to take the opportunity to go for a short walk. The city provides its citizens with a Walk Generating App on their phones -- everytime you press the button it sends you an array of one-letter strings representing directions to walk (eg. ['n', 's', 'w', 'e']). You always walk only a single block for each letter (direction) and you know it takes you one minute to traverse one city block, so create a function that will return true if the walk the app gives you will take you exactly ten minutes (you don't want to be early or late!) and will, of course, return you to your starting point. Return false otherwise.
+
+function isValidWalk(walk) {
+    let count = 0
+    let count1 = 0
+    if(walk.length > 10){
+      return false
+    }
+    walk.map(element => {
+      if(element === 'n'){
+        count++
+      }else if(element === 's'){
+        count--
+  }
+    })
+     walk.map(element => {
+      if(element === 'w'){
+        count1++
+      }else if(element === 'e'){
+        count1--
+  }
+    })
+     return walk.length === 10 && count1 === 0 && count === 0
+}
+
+//Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+// For example (Input --> Output):
+
+// 39 --> 3 (because 3*9 = 27, 2*7 = 14, 1*4 = 4 and 4 has only one digit)
+// 999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2)
+// 4 --> 0 (because 4 is already a one-digit number)
+
+function persistence(num) {
+    let i = 0
+      while(num >= 10){
+        num = num.toString().split('').reduce((acc,cur)=> acc * (+cur),1)
+       i++
+  }
+    return i
+}
+
+//In this kata you are required to, given a string, replace every letter with its position in the alphabet.
+//If anything in the text isn't a letter, ignore it and don't return it.
+
+function alphabetPosition(text) {
+    let arr = []
+    let text2 =  text.toLowerCase()
+    let alphabet ='abcdefghijklmnopqrstuvwxyz'
+    for (let i = 0; i < text.length; i++){
+      for(let j = 0; j < alphabet.length; j++){
+        if(text2[i] === alphabet[j] ){
+          arr.push(alphabet.indexOf(text2[i])+1)
+        }
+      }
+    }
+    return arr.join(' ')
+}
+
+//
+
+  
+
+
+
+
+
+
+
 
 
 
