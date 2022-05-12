@@ -174,7 +174,44 @@ function alphabetPosition(text) {
     return arr.join(' ')
 }
 
-//
+//Your task is to sort a given string. Each word in the string will contain a single number. This number is the position the word should have in the result.
+//Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+
+function order(words){
+    var array = words.split(' ');
+    var sortedArray = [];
+    for(let i = 0; i <= array.length; i++) { //loops through numbers array.length amount of times and looks for the index of each number starting from 0
+      for(let j = 0; j < array.length; j++) { //second loops goes through the array of strings and is compared against each index of the first loop, meaning its looking through each string element as it's seeing where the number 1 is, then the number 2, then 3 and so on and so forth
+        if(array[j].indexOf(i) >= 0) { //if the number's index, in ascending order, is found in the string element
+          sortedArray.push(array[j]);// push that element into a new array meaning the new array will be filled with the strings in ascending order thus completing the kata!
+        }
+      }
+    }
+    return sortedArray.join(' ');
+}
+
+//Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements.
+// For example:
+
+// uniqueInOrder('AAAABBBCCDAABBB') == ['A', 'B', 'C', 'D', 'A', 'B']
+// uniqueInOrder('ABBCcAD')         == ['A', 'B', 'C', 'c', 'A', 'D']
+// uniqueInOrder([1,2,2,3,3])       == [1,2,3]
+
+var uniqueInOrder=function(iterable){
+    let arr = []
+    for(let i = 0; i < iterable.length;i++){
+      if(iterable[i] !== iterable[i+1]){ //if the element targeted isn't the same as the element next to it then
+        arr.push(iterable[i]) // add that element to a new array
+      }
+    }
+    return arr
+}
+
+//ALSO ANOTHER, BUT SHORTER, SOLUTION
+
+var uniqueInOrder=function(iterable){
+    return [...iterable].filter((element, i) => element !== iterable[i+1]) //spread the string into an array and then filter in only the elements that aren't equal to the element next to them 
+}
 
   
 
