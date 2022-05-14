@@ -213,6 +213,72 @@ var uniqueInOrder=function(iterable){
     return [...iterable].filter((element, i) => element !== iterable[i+1]) //spread the string into an array and then filter in only the elements that aren't equal to the element next to them 
 }
 
+//Is there an integer k such as : (a ^ p + b ^ (p+1) + c ^(p+2) + d ^ (p+3) + ...) = n * k
+// If it is the case we will return k, if not return -1.
+// Note: n and p will always be given as strictly positive integers.
+
+// digPow(89, 1) should return 1 since 8¹ + 9² = 89 = 89 * 1
+// digPow(92, 1) should return -1 since there is no k such as 9¹ + 2² equals 92 * k
+// digPow(695, 2) should return 2 since 6² + 9³ + 5⁴= 1390 = 695 * 2
+
+function digPow(n, p){
+    var ans = (''+n).split('')
+      .map(function(d,i){
+        return Math.pow(+d,i+p) //for each element, raise it to the power of the index + given value of p
+      }).reduce(function(s,v){ 
+        return s+v  // add all the elements up 
+      }) / n // divide sum of elements by n
+    return ans % 1 ? -1 : ans  // does the answer return a remainder? return -1 if not, return the answer
+}
+
+//You are going to be given an array of integers. Your job is to take that array and find an index N where the sum of the integers to the left of N is equal to the sum of the integers to the right of N. If there is no index that would make this happen, return -1.
+//For example:
+
+// Let's say you are given the array {1,2,3,4,3,2,1}:
+// Your function will return the index 3, because at the 3rd position of the array, the sum of left side of the index ({1,2,3}) and the sum of the right side of the index ({3,2,1}) both equal 6.
+
+function findEvenIndex(arr){
+    let equalIndex = -1
+    arr.forEach((element, i)=> {
+      let leftSide = arr.slice(0,i).reduce((acc,sum) => acc + sum,0) //leftSide holds a piece(slice) of the array on the left side of the looped through index
+      let rightSide = arr.slice(i+1).reduce((acc,sum) => acc + sum,0)//rightSide holds a slice of the array starting from the current index + 1 to the end of the array
+      if(leftSide == rightSide){ //if the values on the right side and left side === eachother ...
+         equalIndex = i // set equalIndex to the index where both side's values equal eachother
+        }
+    })
+    return equalIndex //if the array doesn't have an index value where the right and left sides don't equal eachother, then return the original value of -1
+}
+
+//Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
+
+// Examples
+// "the-stealth-warrior" gets converted to "theStealthWarrior"
+// "The_Stealth_Warrior" gets converted to "TheStealthWarrior"
+
+function toCamelCase(str){
+    let arr = str.split('')
+    for(let i = 0;i<arr.length;i++){ //loop through all the characters(elements) in the array
+      if(arr[i] === '-'|| arr[i] === '_'){ //if we find the character '-' or '_' ...
+        arr[i+1] = arr[i+1].toUpperCase() //then the element after the character, capitalize it 
+        arr[i] = '' //also replace the '-' and '_' with a space ('')
+      }
+    }
+    return arr.join('') //join at all the spaces to finally get the camel case string
+}
+
+//A Narcissistic Number is a positive number which is the sum of its own digits, each raised to the power of the number of digits in a given base. In this Kata, we will restrict ourselves to decimal (base 10).
+
+// For example, take 153 (3 digits), which is narcisstic:
+// 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+
+function narcissistic(value) {
+    let length = value.toString().length // # of digits of each value passed through
+    let num = value.toString().split('').reduce((acc,cur)=> acc + Math.pow(cur,length),0) // place digits in an array, raise each digit to the power of the # of digits and then add them all up
+    return num === value? true : false // if the sum is equal to the original value then return true else false  
+}
+
+//
+
   
 
 
