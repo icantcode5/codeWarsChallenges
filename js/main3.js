@@ -277,7 +277,33 @@ function narcissistic(value) {
     return num === value? true : false // if the sum is equal to the original value then return true else false  
 }
 
-//
+//A pangram is a sentence that contains every single letter of the alphabet at least once. For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram, because it uses the letters A-Z at least once (case is irrelevant).
+// Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
+
+function isPangram(string){
+    let count = 0
+    let string2 = string.toLowerCase()
+    let str = new Set(string2) //creates an object of only unique values
+    let arr = Array.from(str) //return those unique values as an array
+    let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    for(let i = 0; i < arr.length;i++){
+      for(let j=0; j< alphabet.length;j++){
+      if(arr[i] === alphabet[j]){
+          count++
+        }
+      }
+    }
+    return count === 26? true : false //if count is 26, then the string has all the letters of the alphabet in it
+
+}
+
+//There is an array with some numbers. All numbers are equal except for one. Try to find it!
+// findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
+// findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
+
+function findUniq(arr) {
+    return arr.filter((element,i) => i === arr.indexOf(element) && i === arr.lastIndexOf(element))[0] //if the index of the element is the same from the right and left side of the array, then that value only occurs once in the array
+}
 
   
 
