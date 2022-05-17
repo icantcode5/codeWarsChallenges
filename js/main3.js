@@ -305,6 +305,22 @@ function findUniq(arr) {
     return arr.filter((element,i) => i === arr.indexOf(element) && i === arr.lastIndexOf(element))[0] //if the index of the element is the same from the right and left side of the array, then that value only occurs once in the array
 }
 
+//You will be given an array of numbers. You have to sort the odd numbers in ascending order while leaving the even numbers at their original positions.
+
+function sortArray(array) {
+    const oddNumbers = array.filter(element => element % 2).sort((a,b)=> a-b ) //create an array of sorted odd numbers
+    const result = array.map(element => { //loop through and create a new array
+      if(element % 2){ //if the current element is odd...
+        return oddNumbers.shift() // then take the first element of the sorted odd numbers array and place it in the mapped position instead of the old odd number
+      }else { //if the element is even...
+        return element //then return the same value (leave as is basically)
+      }
+    })
+    return result // give us back the new mapped array
+}
+
+//
+
   
 
 
