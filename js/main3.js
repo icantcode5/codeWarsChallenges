@@ -319,7 +319,71 @@ function sortArray(array) {
     return result // give us back the new mapped array
 }
 
-//
+//Complete the solution so that it splits the string into pairs of two characters. If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
+
+function solution(str){
+    let myarr = []
+     if (str.length % 2 !== 0){
+        str = str + '_'
+     }
+    let arr = str.split('').map((element, i,arr) => {
+      if(i % 2 === 0){
+        myarr.push(arr.slice(i,i+2).join(''))
+      }
+    })
+    return myarr
+  
+}
+
+//Build a pyramid-shaped tower given a positive integer number of floors. A tower block is represented with "*" character.
+
+// For example, a tower with 3 floors looks like this:
+// [
+//   "  *  ",
+//   " *** ", 
+//   "*****"
+// ] KEEP IN MIND THE WHITE SPACES AROUND THE ELEMENTS EXCEPT THE LAST ELEMENT
+
+function towerBuilder(nFloors) {
+    let arr = []
+    for(let i = 0; i < nFloors;i++){
+      arr.push(' '.repeat(nFloors - i -1) + '*'.repeat((i*2)+ 1) + ' '.repeat(nFloors -i -1)) // add white spaces equal to the number of floors - the value of i - 1 and then add * the amount of times of the value of i times 2 +1 and then repeat the same number of white spaces as the beginning
+    }
+    return arr
+}
+
+// //Given a list and a number, create a new list that contains each number of list at most N times, without reordering.
+// For example if the input number is 2, and the input list is [1,2,3,1,2,1,2,3], you take [1,2,3,1,2], drop the next [1,2] since this would lead to 1 and 2 being in the result 3 times, and then take 3, which leads to [1,2,3,1,2,3].
+// With list [20,37,20,21] and number 1, the result would be [20,37,21].
+
+const deleteNth = (arr,n) => {
+    let obj={}; //create an empty object
+    return arr.filter(num => (
+     obj[num] = (obj[num] || 0) + 1, //if the number has appeared less than n times, the value is kept....
+      obj[num] <= n //any more same values repeating past the number of n times get removed
+    ));
+}
+
+//AN EASIER TO READ SOLUTION
+
+function deleteNth(arr,n){
+    let map = {};
+    let output = [];
+    
+    for (let i = 0; i < arr.length; i++){
+      let current = arr[i]; //store each value in the current variable as it loops through the array
+      if (!map[current]) { // if the key (current element in the array) is not in the object...
+        map[current] = 0; // create a new key value pair using the current element and set it to 0
+      }
+      map[current]++ // increment the current keys value +1
+      if (map[current] <= n) { // if the key's value is less than n, push that element into a new array
+        output.push(current)
+      }
+    }
+    return output // returns the array with each element repeated only n amount of times or less. 
+  }
+
+  
 
   
 
