@@ -867,6 +867,56 @@ function predictAge(age1,age2,age3,age4,age5,age6,age7,age8){
   let arr = [age1,age2,age3,age4,age5,age6,age7,age8]
   return Math.floor(Math.sqrt(arr.map(element => element * element).reduce((acc,cur)=> acc+cur,0))/2)
 }
+
+//Given a string str, reverse it omitting all non-alphabetic characters.
+
+function reverseLetter(str) {
+  let arr = []
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  for(let i = 0; i < str.length;i++){
+      if(alphabet.includes(str[i])){ //alphabet doesn't include numbers or symbols so they're going to be left out of the new array
+        arr.push(str[i])
+      }
+  }
+  return arr.reverse().join('')
+}
+
+//use the filter method to return only even numbers from an array
+
+function getEvenNumbers(numbersArray){
+  return numbersArray.filter(element => element % 2 === 0 )
+}
+
+//You need to return the nth triangular number. You should return 0 for out of range values:
+
+function triangular(n) {
+  if(n < 0){
+    return 0
+  }
+let val =  n* (n+1) / 2 //this is the most efficient way of doing this kata bc it handles large intergers
+return val
+}
+
+//Find the number with the most digits.
+// If two numbers in the argument array have the same number of digits, return the first one in the array.
+
+
+
+function findLongest(array){
+  let num = '0';
+  for(let i=0; i<array.length; i++) {
+    let string = array[i].toString();
+    if(string.length > num.length) { //if the length of the array element is greater than the num.length value of 1...
+      num = string; //then num now becomes the array element and moves on to the next element to compare it to the previous element being held in the variable num
+    }
+  }
+  return parseInt(num); //return the array element that first appears with the most digits
+}
+
+//
+
+
+
  
 
 
