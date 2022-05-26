@@ -913,6 +913,33 @@ function findLongest(array){
   return parseInt(num); //return the array element that first appears with the most digits
 }
 
+//Your task is to return the sum of Triangular Numbers up-to-and-including the nth Triangular Number.
+
+function sumTriangularNumbers(n) {
+  if(n < 0){
+    return 0
+  }
+  let sum = (n*(n + 1)*(n+2)) / 6
+  return sum
+}
+
+//return the largest sum of two pairs given an array of numbers
+
+function largestPairSum (numbers) {
+  let arr =  numbers.sort((a,b) => a-b)
+  return arr[arr.length-2] + arr[arr.length-1] 
+}
+
+//Given an array of integers , Find the maximum product obtained from multiplying 2 adjacent numbers in the array.
+
+function adjacentElementsProduct(array) {
+  let arr = []
+  for(let i = 0 ; i<array.length-1;i++){
+    arr.push(array[i]*array[i+1])
+  }
+  return Math.max(...arr)
+}
+
 //
 
 
