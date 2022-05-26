@@ -352,7 +352,7 @@ function towerBuilder(nFloors) {
     return arr
 }
 
-// //Given a list and a number, create a new list that contains each number of list at most N times, without reordering.
+//Given a list and a number, create a new list that contains each number of list at most N times, without reordering.
 // For example if the input number is 2, and the input list is [1,2,3,1,2,1,2,3], you take [1,2,3,1,2], drop the next [1,2] since this would lead to 1 and 2 being in the result 3 times, and then take 3, which leads to [1,2,3,1,2,3].
 // With list [20,37,20,21] and number 1, the result would be [20,37,21].
 
@@ -381,9 +381,23 @@ function deleteNth(arr,n){
       }
     }
     return output // returns the array with each element repeated only n amount of times or less. 
+}
+
+//Given a string of words, you need to find the highest scoring word.
+
+// Each letter of a word scores points according to its position in the alphabet: a = 1, b = 2, c = 3 etc.
+// You need to return the highest scoring word as a string.
+// If two words score the same, return the word that appears earliest in the original string.
+// All letters will be lowercase and all inputs will be valid.
+
+function high(s){
+    let as =  s.split(' ').map(s=>s.split('').reduce((a,b)=>a+b.charCodeAt(0)-96,0)); // first make the string into an array to target each word individually. Then select each word and split that into an array. After, turn the letters into their value of the alphabet equivalent and add them up. This can be done all in one step using the reduce function. 
+    return s.split(' ')[as.indexOf(Math.max(...as))]; // finally take the array containing the sum of the letters value in the alphabet and find the max number. Then take that number and find the index postion in the "as" array and look for the same index position in the original words array since that's where the max alphabet value is also located at.
   }
 
-  
+  //
+
+
 
   
 
