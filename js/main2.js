@@ -940,8 +940,40 @@ function adjacentElementsProduct(array) {
   return Math.max(...arr)
 }
 
-//
+//We want to know the index of the vowels in a given word, for example, there are two vowels in the word super (the second and fourth letters).
+// So given a string "super", we should return a list of [2, 4].
+// Some examples:
 
+// Mmmm  => []
+// Super => [2,4]
+// Apple => [1,5]
+// YoMama -> [1,2,4,6]
+
+function vowelIndices(word){
+  word = word.toLowerCase()
+  var ans = [];
+  var vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+  for(i=0; i<word.length; i++){
+    if(vowels.indexOf(word[i])>=0){ans.push(i+1)}
+  }
+  return ans
+}
+
+//Your car is old, it breaks easily. The shock absorbers are gone and you think it can handle about 15 more bumps before it dies totally.
+// Unfortunately for you, your drive is very bumpy! Given a string showing either flat road ("_") or bumps ("n"), work out if you make it home safely. 15 bumps or under, return "Woohoo!", over 15 bumps return "Car Dead".
+
+function bump(x){
+  let flat = 0
+  let bumps = 0
+  for(let i = 0; i < x.length;i++){
+    if(x[i] === "_"){
+      flat++
+    }else if(x[i]=== "n"){
+      console.log(bumps++)
+    }
+  }
+  return bumps > 15 ? 'Car Dead' : 'Woohoo!'
+}
 
 
  
