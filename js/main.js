@@ -117,3 +117,42 @@ function fakeBin(x){
 function plural(n) {
   return ( n > 1 || n < 1) ? true : false
 }
+
+//Your task is to sum the differences between consecutive pairs in the array in descending order.
+// Example
+// [2, 1, 10]  -->  9
+// In descending order: [10, 2, 1]
+// Sum: (10 - 2) + (2 - 1) = 8 + 1 = 9
+
+function sumOfDifferences(arr) {
+  let newArr = []
+  let sorted = arr.sort((a,b) => b - a) //sort array in descending order and store in a new variable
+  for(let i = 0;i < sorted.length-1;i++){ //loop through sorted array
+    newArr.push(sorted[i] - sorted[i+1] ) // beacause we are always looking at the index + 1, our loop has to stop at sorted.length-1 since if we check the end of the array + 1, there is no value there
+  }
+  return newArr.reduce((cur,sum) => cur + sum,0) // sum the differences
+
+}
+
+// ANOTHER SOLUTION, SIMPLER
+
+function sumOfDifferences(arr) {
+  return arr.length > 1 ? Math.max(...arr) - Math.min(...arr) : 0; // the difference of the lowest and greatest integer is the same as the difference of all the adjacent values and their sums
+}
+
+//Complete the function that takes two integers (a, b, where a < b) and return an array of all integers between the input parameters, including them.
+// For example:
+
+// a = 1
+// b = 4
+// --> [1, 2, 3, 4]
+
+function between(a, b) {
+  let arr = []
+  for(let i = a; i <= b; i++){ // a is the starting point and b is the end point. Simple loop that includes b 
+    arr.push(i) // push values looped through into empty array
+  }
+  return arr //return the filled array
+}
+
+//
