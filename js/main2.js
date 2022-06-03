@@ -975,6 +975,72 @@ function bump(x){
   return bumps > 15 ? 'Car Dead' : 'Woohoo!'
 }
 
+//We want to generate a function that computes the series starting from 0 and ending until the given number.
+
+// Example:
+// Input:
+// > 6
+// Output: 0+1+2+3+4+5+6 = 21
+
+var SequenceSum = (function() {
+  function SequenceSum() {}
+
+  SequenceSum.showSequence = function(count) {
+    var m = [], s=0;
+    if(count === 0) return count + '=' + 0; //if count is 0 return this string literal
+    if(count < 0) return count + '<' + 0;//if count is a negative number return this str literal
+    
+    for(var i=0; i<=count; i++) { //loop from 0 to count value
+      s+=i;  // add as you increment by 1 from 0 to value
+      m.push(i); // push each value into an array
+    };
+
+    return m.join('+') + ' = ' + s; // finally, join the array number with a '+' and have it '=' to the value of s
+  };
+
+  return SequenceSum;
+
+})();
+
+//Return an array containing the numbers from 1 to N, where N is the parametered value.
+// Replace certain values however if any of the following conditions are met:
+
+// If the value is a multiple of 3: use the value "Fizz" instead
+// If the value is a multiple of 5: use the value "Buzz" instead
+// If the value is a multiple of 3 & 5: use the value "FizzBuzz" instead
+// N will never be less than 1.
+
+function fizzbuzz(n){
+  let arr = []
+  for(let i = 1; i <= n; i++){
+    if(i % 3 === 0 && i % 5 ===0){
+      arr.push('FizzBuzz')
+    }else if(i % 3 === 0){
+      arr.push('Fizz')
+    }else if(i % 5 === 0){
+      arr.push('Buzz')
+    }else{
+      arr.push(i)
+    }
+  }
+  return arr
+}
+
+//Given a positive integer n, calculate the following sum:
+
+// n + n/2 + n/4 + n/8 + ...
+// All elements of the sum are the results of integer division.
+// Example:  25  =>  25 + 12 + 6 + 3 + 1 = 47
+
+function halvingSum(n) {
+  let s = 0
+ while(n>0){
+   s+=n
+   n = Math.floor(n/2)
+ }
+  return s
+}
+
 
  
 
