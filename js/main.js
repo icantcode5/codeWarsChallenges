@@ -189,4 +189,46 @@ function lovefunc(flower1, flower2){
   }
 }
 
+//Write function bmi that calculates body mass index (bmi = weight / height2).
+
+// if bmi <= 18.5 return "Underweight"
+// if bmi <= 25.0 return "Normal"
+// if bmi <= 30.0 return "Overweight"
+// if bmi > 30 return "Obese"
+
+function bmi(weight, height) {
+  let bmi = weight / (height*height)
+  if(bmi <= 18.5){
+    return 'Underweight'
+  }else if(bmi <= 25){
+    return "Normal"
+  }else if(bmi <= 30){
+    return 'Overweight'
+  }else{
+    return 'Obese'
+  }
+}
+
+//A hero is on his way to the castle to complete his mission. However, he's been told that the castle is surrounded with a couple of powerful dragons! each dragon takes 2 bullets to be defeated, our hero has no idea how many bullets he should carry.. Assuming he's gonna grab a specific given number of bullets and move forward to fight another specific given number of dragons, will he survive?
+//Return True if yes, False otherwise :)
+
+function hero(bullets, dragons){
+    return .5* bullets >= dragons
+}
+
+//I'm new to coding and now I want to get the sum of two arrays...actually the sum of all their elements. I'll appreciate for your help.
+// P.S. Each array includes only integer numbers. Output is a number too.
+
+function arrayPlusArray(arr1, arr2) {
+  let arr1Sum = arr1.reduce((sum,curr) => sum + curr,0) 
+  let arr2Sum = arr2.reduce((sum,curr) => sum + curr,0) 
+  return arr1Sum + arr2Sum
+}
+
+// ANOTHER, SHORTER MORE CONCISE SOLUTION
+
+function arrayPlusArray(arr1, arr2) {
+  return arr1.concat(arr2).reduce((acc, cur) => acc + cur);
+}
+
 //
