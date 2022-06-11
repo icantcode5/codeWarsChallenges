@@ -231,4 +231,124 @@ function arrayPlusArray(arr1, arr2) {
   return arr1.concat(arr2).reduce((acc, cur) => acc + cur);
 }
 
+//Create a function which answers the question "Are you playing banjo?".
+// If your name starts with the letter "R" or lower case "r", you are playing banjo!
+// The function takes a name as its only argument, and returns one of the following strings:
+// name + " plays banjo" 
+// name + " does not play banjo"
+
+function areYouPlayingBanjo(name) {
+  if(name.split('')[0] === 'r'||name.split('')[0] === 'R' ){ //turn name into an a letter array and check the first letter in the first index for 'r' or 'R'
+    return `${name} plays banjo`
+  }else{
+    return `${name} does not play banjo`
+  }
+}
+
+//ANOTHER SOLUTION, SHORTER MORE SIMPLE (DUH!!)
+function areYouPlayingBanjo(name) {
+  return name + (name[0].toLowerCase() == 'r' ? ' plays' : ' does not play') + " banjo"; // check string index
+}
+
 //
+// Deoxyribonucleic acid, DNA is the primary information storage molecule in biological systems. It is composed of four nucleic acid bases Guanine ('G'), Cytosine ('C'), Adenine ('A'), and Thymine ('T').
+// Ribonucleic acid, RNA, is the primary messenger molecule in cells. RNA differs slightly from DNA its chemical structure and contains no Thymine. In RNA Thymine is replaced by another nucleic acid Uracil ('U').
+// Create a function which translates a given DNA string into RNA.
+// For example:
+// "GCAT"  =>  "GCAU"
+
+function DNAtoRNA(dna) {
+  for(let i = 0; i<dna.length;i++){
+    if(dna[i] === 'T'){
+      dna = dna.replace('T','U')
+    }
+  }
+  return dna
+}
+
+//ANOTHER SOLUTION
+
+function DNAtoRNA(dna) {
+  return dna.split("T").join("U"); //split the string into an array and break it at each instance of "T" and then join it after each element with the letter "T". CLEVER!
+}
+
+//if the number is even, multiply it by 8, else multiply it by 9
+
+function simpleMultiplication(number) {
+  if(number % 2 === 0){
+    return number * 8
+  }else{
+    return number * 9
+  } 
+}
+
+//ou were camping with your friends far away from home, but when it's time to go back, you realize that your fuel is running out and the nearest pump is 50 miles away! You know that on average, your car runs on about 25 miles per gallon. There are 2 gallons left. Considering these factors, write a function that tells you if it is possible to get to the pump or not. Function should return true (1 in Prolog, NASM and COBOL) if it is possible and false (0 in Prolog, NASM and COBOL) if not. The input values are always positive.
+
+const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+  return  mpg * fuelLeft >= distanceToPump ? true : false
+ };
+
+ //remove the highest and lowest numbers from the array and then sum the remaining values. If an empty value ( null, None, Nothing etc. ) is given instead of an array, or the given array is an empty list or a list with only 1 element, return 0.
+
+ function sumArray(array) { //UNIQUE SOLUTION USING A TRY AND CATCH BLOCK
+  try{
+  let newArr = array.sort((a,b)=> a-b)
+  newArr.pop()
+  newArr.shift()
+  let arr =  newArr.reduce((a,b)=> a+b,0)
+  return arr
+    }
+  catch(e){ //this lets all the code that fails (null,undefined,none,less than 2 elements in the array return 0)
+    return 0
+  } 
+}
+
+//Given an integer, add all the numbers starting from 1 up to that integer to an array
+
+function monkeyCount(n) {
+  let arr = []
+  for(let i = 1; i<= n;i++){
+  arr.push(i)
+}
+  return arr
+}
+
+//Our football team finished the championship. The result of each match look like "x:y". Results of all matches are recorded in the collection.
+
+// For example: ["3:1", "2:2", "0:1", ...]
+// Write a function that takes such collection and counts the points of our team in the championship. Rules for counting points for each match:
+// if x > y: 3 points
+// if x < y: 0 point
+// if x = y: 1 point
+
+function points(games) {
+  let score = 0
+  let gamesTwo = games.join(':').split(':').map(Number) //join each element by ':' which looks like '3:1:2:2:0:1, then we split the string back into array this time at every ':' so the array will contain no more ':'s
+  for(let i = 0;i<gamesTwo.length; i+=2 ){
+    if(gamesTwo[i] > gamesTwo[i+1]){ // check in pairs to determine the score update. This works bc there's an even amount of numbers
+      score+=3
+    }else if(gamesTwo[i] < gamesTwo[i+1]){
+      score+=0
+    }else{
+      score+=1
+    }
+  }
+  return score
+}
+
+//It's bonus time in the big city! The fatcats are rubbing their paws in anticipation... but who is going to make the most money?
+// 
+// Build a function that takes in two arguments (salary, bonus). Salary will be an integer, and bonus a boolean.
+// 
+// If bonus is true, the salary should be multiplied by 10. If bonus is false, the fatcat did not make enough money and must receive only his stated salary.
+// 
+// Return the total figure the individual will receive as a string prefixed with "£" (= "\u00A3", JS, Go, Java and Julia), "$" (C#, C++, Ruby, Clojure, Elixir, PHP, Python, Haskell and Lua) or "¥" (Rust).
+
+function bonusTime(salary, bonus) {
+  return bonus ? '£' + salary *10 : '£' + salary // if bouns is boolean true, multiply salary times 10 else return salary
+}
+
+
+
+
+
