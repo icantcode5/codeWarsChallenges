@@ -412,4 +412,83 @@ const areaOrPerimeter = function(l , w) {
   return l === w ? l*w : l + l + w + w
 }
 
+//If the paramter name is the same as the parameter boss, return "Hello boss" if not, "Hello guest"
+
+function greet (name, owner) {
+  return name === owner ? "Hello boss" : "Hello guest"
+}
+
+//Your task is to find the first element of an array that is not consecutive.
+// By not consecutive we mean not exactly 1 larger than the previous element of the array.
+
+// E.g. If we have an array [1,2,3,4,6,7,8] then 1 then 2 then 3 then 4 are all consecutive but 6 is not, so that's the first non-consecutive number.
+// If the whole array is consecutive then return null2.
+// The array will always have at least 2 elements1 and all elements will be numbers. The numbers will also all be unique and in ascending order. The numbers could be positive or negative and the first non-consecutive could be either too!
+
+function firstNonConsecutive (arr) {
+  for(let i = 0; i<arr.length-1;i++){ //loop through EXCEPT END IS (i < arr.length -1 ) -1 because we don't want to reach out of the end of the array since we're looking at the current index and next one in one iteration!!!!!!!!!
+    if(arr[i] - arr[i+1] !== -1){ //subtract current index with next index and if it is consecutively ascending it should return -1!
+      return arr[i+1]
+    }
+  }
+  return null
+}
+
+//After a hard quarter in the office you decide to get some rest on a vacation. So you will book a flight for you and your girlfriend and try to leave all the mess behind you.
+// You will need a rental car in order for you to get around in your vacation. The manager of the car rental makes you some good offers.
+// Every day you rent the car costs $40. If you rent the car for 7 or more days, you get $50 off your total. Alternatively, if you rent the car for 3 or more days, you get $20 off your total.
+// Write a code that gives out the total amount for different days(d).
+
+function rentalCarCost(d) {
+  let dayCost = d * 40 //find the cost of x days 
+  if(d >= 3 && d < 7){ 
+    return dayCost - 20 // apply discount of 20 off for 3 or more days of rental but less than 7!!!!
+  }else if(d >= 7){
+    return dayCost - 50 //apply discount of 50 off for renting for 7 or more days
+  }else {
+    return dayCost //less than 3 days of rental? then no discount code is needed
+  }
+}
+
+//Write function RemoveExclamationMarks which removes all exclamation marks from a given string.
+
+function removeExclamationMarks(s) {
+  return s.split('').filter(el => el !== '!').join('') //filters out any elements that are '!'
+}
+
+//Complete the function so that it finds the average of the three scores passed to it and returns the letter value associated with that grade.
+
+function getGrade (s1, s2, s3) {
+  let avg = (s1 + s2 + s3)/ 3
+  if(avg >=90 && avg <=100){
+    return 'A'
+  }else if(avg >=80 && avg <90){
+    return 'B'
+  }else if(avg >=70 && avg <80){
+    return 'C'
+  }else if(avg >=60 && avg <70){
+    return 'D'
+  }else if(avg >=0 && avg <60){
+    return 'F'
+  }
+}
+
+//ANOTHER SOLUTION USING CASE STATEMENT WHICH IS BETTER WHEN DEALING WITH MULTIPLE CONDITIONAL STATEMENTS
+
+function getGrade (s1, s2, s3) { 
+  var avg = (s1 + s2 + s3)/3;
+  switch(true) { //how does switch work here? We are looking for one of the case condition results to be true :) Like, we have 87 as avg, so case (avg >= 90) gives you false.. next gives you true, so it will be used.
+    case (avg >= 90):
+      return 'A';
+    case ( avg >= 80):
+      return 'B';
+    case ( avg >= 70):
+      return 'C';
+    case ( avg >= 60):
+      return 'D'; 
+    default:
+      return 'F';   
+  }
+ }
+
 
