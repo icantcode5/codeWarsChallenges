@@ -491,4 +491,73 @@ function getGrade (s1, s2, s3) {
   }
  }
 
+ //All of the animals are having a feast! Each animal is bringing one dish. There is just one rule: the dish must start and end with the same letters as the animal's name. For example, the great blue heron is bringing garlic naan and the chickadee is bringing chocolate cake.
+ // Write a function feast that takes the animal's name and dish as arguments and returns true or false to indicate whether the beast is allowed to bring the dish to the feast.
+
+ function feast(beast, dish) {
+  if(beast[0] === dish[0] && beast[beast.length-1] === dish[dish.length-1]){ //check first letter and last letter and compare to dish
+    return true
+  }else{
+    return false
+  }
+}
+
+//Given a string, you have to return a string in which each character (case-sensitive) is repeated once.
+
+function doubleChar(str) {
+  let stri = []
+  for(let i = 0 ; i < str.length;i++){
+    stri.push(str[i])
+    stri.push(str[i])
+  }
+  return stri.join('')
+}
+
+//ANOTHER SOLUTION WHICH IS SHORTER USING ES6 NOTATION
+
+const doubleChar = (str) => str.split("").map(c => c + c).join(""); //split the string into an array and then map each element to add itself to it. In this case, each string element will add itself and then we join the array elements resulting in a string
+
+//Take an array and remove every second element from the array. Always keep the first element and start removing with the next element.
+
+function removeEveryOther(arr){ //Can also use a filter method to only pass the indices where i % 2 === 0
+  let removeElements = []
+  for(let i = 0; i<arr.length;i+=2){ //starting from the first index, ever other element is kept
+    removeElements.push(arr[i])
+  }
+  return removeElements
+}
+
+//The cockroach is one of the fastest insects. Write a function which takes its speed in km per hour and returns it in cm per second, rounded down to the integer (= floored).
+
+function cockroachSpeed(s) {
+  return Math.floor(s*27.7778)
+}
+
+//Write a function named setAlarm which receives two parameters. The first parameter, employed, is true whenever you are employed and the second parameter, vacation is true whenever you are on vacation.
+// The function should return true if you are employed and not on vacation (because these are the circumstances under which you need to set an alarm). It should return false otherwise. 
+
+function setAlarm(employed, vacation){
+  return employed === true && vacation === false  //returns true implicitly if both conditions are met, else it's implicitly false
+}
+
+//You're writing code to control your town's traffic lights. You need a function to handle each change from green, to yellow, to red, and then to green again.
+// Complete the function that takes a string as an argument representing the current state of the light and returns a string representing the state the light should change to.
+// For example, when the input is green, output should be yellow.
+
+function updateLight(current) {
+  switch(current){
+    case 'green':
+      return 'yellow'
+      break
+    case 'yellow':
+      return 'red'
+      break
+    case 'red':
+      return 'green'
+      break
+  }
+}
+
+//
+
 
