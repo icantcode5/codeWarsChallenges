@@ -587,8 +587,60 @@ const quarterOf = (month) => {
   }else{
     return 4
   }
- }
+}
 
- //
+//Wolves have been reintroduced to Great Britain. You are a sheep farmer, and are now plagued by wolves which pretend to be sheep. Fortunately, you are good at spotting them.
+// Warn the sheep in front of the wolf that it is about to be eaten. Remember that you are standing at the front of the queue which is at the end of the array:
+// [sheep, sheep, sheep, sheep, sheep, wolf, sheep, sheep]      (YOU ARE HERE AT THE FRONT OF THE QUEUE)
+//    7      6      5      4      3            2      1
+
+function warnTheSheep(queue) {
+  let postion = queue.reverse().indexOf('wolf') //when reversed, the position of the index of wolf is the same place where the sheep infront's postion is originally
+  return postion === 0 ? "Pls go away and stop eating my sheep" : `Oi! Sheep number ${postion}! You are about to be eaten by a wolf!`
+}  //HATED THIS ONE BTW, WHEN USING TICKS USE VARIABLES INSTEAD OF CODING LOGIC
+
+
+//You are given two interior angles (in degrees) of a triangle.
+//Write a function to return the 3rd.
+
+function otherAngle(a, b) {
+  return 180-(a+b); //interior angles all add up to 180 degrees!
+}
+
+//Given a number n, return the number of positive odd numbers below n, EASY!
+
+function oddCount(n){
+  return Math.floor(n/2)
+}
+
+//Character recognition software is widely used to digitise printed texts. Thus the texts can be edited, searched and stored on a computer.
+// When documents (especially pretty old ones written with a typewriter), are digitised character recognition softwares often make mistakes.
+// Your task is correct the errors in the digitised text. You only have to handle the following mistakes:
+// S is misinterpreted as 5
+// O is misinterpreted as 0
+// I is misinterpreted as 1
+// The test cases contain numbers only by mistake.
+
+function correct(s){
+  s = s.split(''); //IF WE TRY TO LOOP THROUGH THE STRING AND CHANGE EACH LETTER, IT WON'T WORK. WE HAVE TO SPLIT IT INTO AN ARRAY AND THEN LOOP THROUGH EACH ELEMENT AND CHANGE IT THAT WAY!!!
+  for (var i = 0; i < s.length; i++) {
+    if (s[i] === '5'){
+      s[i] = 'S';
+    } 
+    else if (s[i] === '0') s[i] = 'O';
+    else if (s[i] === '1') s[i] = 'I';
+    }
+  return s.join('')
+}
+
+//Write a program where Alex can input (n) how many times the hoop goes round and it will return him an encouraging message :)
+// If Alex gets 10 or more hoops, return the string "Great, now move on to tricks".
+// If he doesn't get 10 hoops, return the string "Keep at it until you get it".
+
+function hoopCount (n) {
+  return n >= 10 ?  'Great, now move on to tricks' : "Keep at it until you get it" // if 10 or more, say this, otherwise say this
+}
+
+//
 
 
