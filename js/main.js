@@ -658,6 +658,66 @@ function findLongest(str) {
     return longest
 }
 
+//You ask a small girl,"How old are you?" She always says, "x years old", where x is a random number between 0 and 9.
+
+// Write a program that returns the girl's age (0-9) as an integer.
+// Assume the test input string is always a valid string. For example, the test input may be "1 year old" or "5 years old". The first character in the string is always a number.
+
+function getAge(inputString){
+  return parseInt(inputString)
+}
+
+//Complete the function which takes two arguments and returns all numbers which are divisible by the given divisor. First argument is an array of numbers and the second is the divisor.
+
+function divisibleBy(numbers, divisor){
+  return numbers.filter(element => element % divisor === 0)
+}
+
+//When provided with a number between 0-9, return it in words.
+// Input :: 1
+// Output :: "One".
+
+function switchItUp(number){
+  switch(number){
+      case 0: return 'Zero'
+      case 1: return 'One'
+      case 2: return 'Two'
+      case 3: return 'Three'
+      case 4: return 'Four'
+      case 5: return 'Five'
+      case 6: return 'Six'
+      case 7: return 'Seven'
+      case 8: return 'Eight'
+      case 9: return 'Nine'
+  }
+}
+
+//Think of a way to store the languages as a database (eg an object). The languages are listed below so you can copy and paste!
+// Write a 'welcome' function that takes a parameter 'language' (always a string), and returns a greeting - if you have it in your database. It should default to English if the language is not in the database, or in the event of an invalid input.
+
+function greet(language) {
+  let obj = {
+    english: 'Welcome',
+czech: 'Vitejte',
+danish: 'Velkomst',
+dutch: 'Welkom',
+estonian: 'Tere tulemast',
+finnish: 'Tervetuloa',
+flemish: 'Welgekomen',
+french: 'Bienvenue',
+german: 'Willkommen',
+irish: 'Failte',
+italian: 'Benvenuto',
+latvian: 'Gaidits',
+lithuanian: 'Laukiamas',
+polish: 'Witamy',
+spanish: 'Bienvenido',
+swedish: 'Valkommen',
+welsh: 'Croeso'
+  }
+ return !obj[language] ? 'Welcome': obj[language] // remember that the parmeter being passed through is already a string so no need to write it as obj['language'] but obj[language]
+}
+
 //
 
 
