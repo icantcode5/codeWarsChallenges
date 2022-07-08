@@ -1041,8 +1041,42 @@ function halvingSum(n) {
   return s
 }
 
+//Given an array of numbers, return a new array of length number containing the last even numbers from the original array (in the same order). The original array will be not empty and will contain at least "number" even numbers.
+// For example:
+// ([1, 2, 3, 4, 5, 6, 7, 8, 9], 3) => [4, 6, 8]
 
- 
+function evenNumbers(array, number) {
+  return array.filter(el => el % 2 === 0).slice(-number) //filter positive integers and then slice from the end of the array .slice(-x) since we only want the 'number' of even integers
+}
+
+//Given an array of integers , Find the minimum sum which is obtained from summing each Two integers product.
+
+const minSum = arr =>
+  arr.sort((a, b) => a - b).reduce((pre, val) => pre + val * arr.pop(), 0); //first sort the array from lowest to greatest. Then reduce it to where we multiply the first value in the array with the last one and as each beginning value gets multiplied with the last one in the array, we sum that while removing the last number in the array.
+
+//Write a method that takes one argument as name and then greets that name, capitalized and ends with an exclamation point.
+
+var greet = function(name) {
+  let nam = name.split('').map(el => el.toUpperCase()).slice(0,1).join('') //capitalize the array and then only slice the first letter
+  return 'Hello '+  nam + name.slice(1).toLowerCase() + '!' // return "Hello " + the sliced off letter and the sliced off rest of the letters from the original array and merge them while making sure the rest of the letters are converted to lower case
+};
+
+//ANOTHER SOLUTION 
+
+var greet = function(name) {
+  return "Hello " + name.charAt(0).toUpperCase() + name.slice(1).toLowerCase() + "!"; //shorter form but essesntially the same concept as the first solution above
+};
+
+//Implement a function, which takes a non-negative integer, representing the number of eggs to boil. It must return the time in minutes (integer), which it takes to have all the eggs boiled.
+// Rules
+// you can put at most 8 eggs into the pot at once
+// it takes 5 minutes to boil an egg
+// we assume, that the water is boiling all the time (no time to heat up)
+// for simplicity we also don't consider the time it takes to put eggs into the pot or get them out of it
+
+function cookingTime(eggs) {
+  return Math.ceil(eggs/8) * 5
+}
 
 
 
