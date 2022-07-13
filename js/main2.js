@@ -1078,6 +1078,37 @@ function cookingTime(eggs) {
   return Math.ceil(eggs/8) * 5
 }
 
+//Determine the total number of digits in the integer (n>=0) given as input to the function. For example, 9 is a single digit, 66 has 2 digits and 128685 has 6 digits. Be careful to avoid overflows/underflows.
+
+function digits(n) {
+  return n.toString().length //convert integer input to string and return the length value of that string which is the count of integers in the passed in integer
+}
+
+//Given an array/list [] of integers , Find the product of the k maximal numbers.
+
+function maxProduct(numbers, size){
+  return numbers.sort((a,b)=> a-b).slice(-size).reduce((sum,curr) =>sum*curr,1)
+}
+
+//An element is leader if it is greater than The Sum all the elements to its right side.
+//Given an array/list [] of integers , Find all the LEADERS in the array.
+
+function arrayLeaders(numbers){
+  let arr = []
+  numbers.forEach((element,index) => {
+    let left = element //left variable holds each element as if moves through array
+    let right = numbers.slice(index+1).reduce((acc,cur) => acc+cur,0 ) //right variable holds the sum of all the numbers to the right of the current element
+    if(left > right){
+      arr.push(element) //push the elements which meet the condition meaning they are a "leader"
+    }
+  })
+  return arr
+}
+
+
+
+
+
 
 
   
