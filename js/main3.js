@@ -395,7 +395,42 @@ function high(s){
     return s.split(' ')[as.indexOf(Math.max(...as))]; // finally take the array containing the sum of the letters value in the alphabet and find the max number. Then take that number and find the index postion in the "as" array and look for the same index position in the original words array since that's where the max alphabet value is also located at.
   }
 
-  //
+//Define a function that takes an integer argument and returns a logical value true or false depending on if the integer is a prime.
+
+function isPrime(num) {
+  if( num <=1){ //return false for 1 or anything less than one
+    return false
+  }
+  if(num === 2){ //return true if num === 2 since it's the only even number that is a prime number
+    return true
+  }
+  for(let i = 2; i<=Math.sqrt(num);i++){ //efficiently loop up to the sqrt of the given number 
+    if(num % i === 0){ //if the number divided by any number from 2 to the sqrt of the passed through number results in the remainder or 0, then it has a divisible number outside itself and 1 meaning it's not prime
+      return false
+    }
+  }
+  return true // if there are no numbers which result in a remainder of 0, them the number must be prime
+}
+
+//You are given an array(list) strarr of strings and an integer k. Your task is to return the first longest string consisting of k consecutive strings taken in the array.
+//n being the length of the string array, if n = 0 or k > n or k <= 0 return ""
+
+function longestConsec(strarr, k) {
+  if(k <= 0 || strarr.length === 0 || strarr.length < k){ //handle edge cases
+    return ''
+  }
+  let arr = []
+  strarr.forEach((element,index)=> { //loop through array
+    let left = strarr.slice(0+index,index+k).reduce((acc,cur)=> acc.concat(cur)) //cut out the elements of strings in arrays of length index + k and reduce each array into a concatenated string 
+    arr.push(left) //push the concatenated string into a new array as a new element
+  })
+  
+  let maxString =  arr.map(element => element.length) //turn each element into its string length
+  let maxNum =  Math.max(...maxString) //find the longest string length
+  let iMax =  maxString.indexOf(maxNum)//find the index of where the longest string is located
+  
+  return arr[iMax]//return the element of where the longest string length occurs in the original array that's holding the strings
+}
 
 
 

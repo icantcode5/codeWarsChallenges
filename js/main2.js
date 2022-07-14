@@ -1105,6 +1105,20 @@ function arrayLeaders(numbers){
   return arr
 }
 
+//Given an array/list [] of integers , Find The maximum difference between the successive elements in its sorted form.
+
+function maxGap (numbers){
+  let max = []
+  let arr = numbers.sort((a,b)=> a-b) //sort the array in ascending order
+  for(let i = 0; i<arr.length-1;i++){ // i < array.length-1 because we are looking at the current index and the one next to it so we want to stop looking just one index shy of the last one or else we end up looking outside the array and returning NaN
+    let diff = Math.abs(arr[i]-arr[i+1]) // variable to hold the difference in succesive elements
+    max.push(diff) //move the resulted differenced into an array 
+  }
+  return Math.max(...max) //return the max value of the values of differences array
+}
+
+//
+
 
 
 
