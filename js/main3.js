@@ -421,7 +421,7 @@ function longestConsec(strarr, k) {
   }
   let arr = []
   strarr.forEach((element,index)=> { //loop through array
-    let left = strarr.slice(0+index,index+k).reduce((acc,cur)=> acc.concat(cur)) //cut out the elements of strings in arrays of length index + k and reduce each array into a concatenated string 
+    let left = strarr.slice(0+index,index+k).reduce((acc,cur)=> acc.concat(cur)) //cut out the elements of strings in arrays of length index + k and reduce each array into a concatenated string. PS .join() works here too! 
     arr.push(left) //push the concatenated string into a new array as a new element
   })
   
@@ -432,6 +432,24 @@ function longestConsec(strarr, k) {
   return arr[iMax]//return the element of where the longest string length occurs in the original array that's holding the strings
 }
 
+//ANOTHER LESS CONVOLUTED AND MORE EFFICIENT SOLUTION
+
+function longestConsec(strarr, k) {
+  var n = strarr.length, 
+      str = '';
+
+  if (n = 0 || k > n || k <= 0) { //edge cases 
+      return str;
+  }
+
+  for (var i = 0; i < strarr.length; i++) {
+      var currentStr = strarr.slice(i, k + i).join('');//same method as above except using .join('') to create strings as we shift through the array
+      if (currentStr.length > str.length) { //if the strings length of the string we are looking at is greater than str 
+          str = currentStr; //then str becomes the new longest word and as we cycles through the array and slice and join the strings, str checks with currentStr if it still longer, if not then become currentStr
+      }
+  }
+  return str; //str will always end up being the longest word which we return it after it has been checked against the rest of the strings
+}
 
 
   

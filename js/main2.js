@@ -1117,7 +1117,44 @@ function maxGap (numbers){
   return Math.max(...max) //return the max value of the values of differences array
 }
 
-//
+//Two red beads are placed between every two blue beads. There are N blue beads. After looking at the arrangement below work out the number of red beads.
+//@ @@ @ @@ @ @@ @ @@ @ @@ @ starts with blue bead then 2 red then 1 blue and so on and so forth
+
+function countRedBeads(n) {
+  if(n < 2){
+    return 0
+  }
+  return (n*2) -2
+}
+
+//Balanced number is the number that * The sum of all digits to the left of the middle digit(s) and the sum of all digits to the right of the middle digit(s) are equal*.
+//Given a number, Find if it is Balanced or not .
+
+function balancedNum(number){
+  let str = number.toString()  //store number in string format in varible str
+  let halve = str.length/2 // half of length of string to determine how to sum right and left side
+  let left
+  let right
+  let arr = str.split('') //convert string into an array to apply array methods to it
+  if(str.length === 1 || str.length === 2){ // balanced if digit length is 1 or 2
+    return 'Balanced'
+  }else if(str.length % 2 === 0){ //if the digit count is even then slice parameters are different
+    left = arr.slice(0,halve-1).reduce((acc,cur)=> acc + +cur,0) //cut out up to but not including the middle digit
+    right = arr.slice(halve+1).reduce((acc,cur)=> acc + +cur,0) //cut out starting after the 2nd middle digit until the end
+  }else if(str.length % 2 !== 0){ //if digit count is odd then slice parameter is different
+    let oddHalf = Math.floor(halve) //round down from the decimal half value to exclude the middle value
+    left = arr.slice(0,oddHalf).reduce((acc,cur)=> acc + +cur,0) //cut out left of middle values and sum them
+    right = arr.slice(oddHalf+1).reduce((acc,cur)=> acc + +cur,0)//cut out right of middle values and sum them
+  }
+  if(left === right){ // if left side is equal to right side 
+    return "Balanced"  
+  }else{ 
+    return "Not Balanced"
+  }
+}
+
+
+
 
 
 
